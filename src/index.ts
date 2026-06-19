@@ -2,6 +2,9 @@ import Express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRouter from './routes/authRoutes';
+import productRouter from './routes/productsRoutes';
+import { CategoryScalarFieldEnum } from './generated/prisma/internal/prismaNamespace';
+import categoryRoutes from './routes/categoryRoutes';
 
 dotenv.config();
 
@@ -16,6 +19,10 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', authRouter);
+
+app.use('/api/products', productRouter);
+
+app.use('/api/categories', categoryRoutes);
 
 const PORT = process.env.PORT || 4000;
 
