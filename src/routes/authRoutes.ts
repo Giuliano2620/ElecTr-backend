@@ -5,9 +5,6 @@ const router = express.Router();
 
 router.post ('/register', register);
 
-router.post('/login', (req, res, next) => {
-  console.log('ruta login llamada');
-  next();
-}, login);
+router.post('/login', login);
 
 export default router;  
